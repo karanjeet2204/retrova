@@ -1,0 +1,1535 @@
+/* =========================================================
+   VAULT LOGIN
+   Complete Login Page Styles
+========================================================= */
+
+
+/* =========================================================
+   THEME VARIABLES
+========================================================= */
+
+.vault-login-page {
+  --login-bg: #f8eeee;
+  --login-card: rgba(255, 252, 252, 0.78);
+
+  --login-text: #292326;
+  --login-muted: #81777c;
+  --login-light: #aaa0a5;
+
+  --login-primary: #ef7195;
+  --login-primary-dark: #dd5d82;
+  --login-primary-soft: #f8d8df;
+
+  --login-input: rgba(247, 243, 244, 0.85);
+
+  --login-border: rgba(60, 40, 48, 0.10);
+
+  --login-danger: #ca626f;
+  --login-danger-bg: #f7dfe2;
+
+  --login-success: #5b9577;
+
+  min-height: 100vh;
+  min-height: 100svh;
+
+  width: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 30px;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(255,255,255,.55),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(239,113,149,.12),
+      transparent 30%
+    ),
+    var(--login-bg);
+
+  color: var(--login-text);
+
+  font-family:
+    "DM Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  transition:
+    background .4s ease,
+    color .4s ease;
+}
+
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+[data-theme="dark"] .vault-login-page {
+  --login-bg: #191719;
+  --login-card: rgba(37, 32, 36, 0.78);
+
+  --login-text: #f6eef2;
+  --login-muted: #b4a9af;
+  --login-light: #81777e;
+
+  --login-primary: #f27b9e;
+  --login-primary-dark: #e36589;
+  --login-primary-soft: #492d37;
+
+  --login-input: rgba(47, 42, 46, 0.82);
+
+  --login-border: rgba(255,255,255,.09);
+
+  --login-danger: #e0808b;
+  --login-danger-bg: #4a292f;
+
+  --login-success: #78b796;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(239,113,149,.08),
+      transparent 35%
+    ),
+    var(--login-bg);
+}
+
+
+/* =========================================================
+   BACKGROUND ORBS
+========================================================= */
+
+.vault-bg-orb {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  transition:
+    transform 1s cubic-bezier(.2,.8,.2,1),
+    opacity 1s ease;
+}
+
+.vault-bg-orb-1 {
+  width: 420px;
+  height: 420px;
+
+  top: -260px;
+  left: -170px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(239,113,149,.18),
+      transparent 70%
+    );
+}
+
+.vault-bg-orb-2 {
+  width: 330px;
+  height: 330px;
+
+  right: -170px;
+  bottom: -170px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(239,113,149,.13),
+      transparent 70%
+    );
+}
+
+.vault-bg-orb-3 {
+  width: 180px;
+  height: 180px;
+
+  right: 18%;
+  top: 15%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(247,202,208,.18),
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   LOGIN SCENE
+========================================================= */
+
+.vault-login-scene {
+  width: min(440px, 100%);
+
+  position: relative;
+
+  z-index: 10;
+
+  transition:
+    transform .9s cubic-bezier(.72,0,.2,1),
+    opacity .65s ease;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.vault-login-card {
+  width: 100%;
+
+  padding: 34px 36px 27px;
+
+  border-radius: 29px;
+
+  background:
+    var(--login-card);
+
+  border:
+    1px solid var(--login-border);
+
+  backdrop-filter:
+    blur(28px);
+
+  -webkit-backdrop-filter:
+    blur(28px);
+
+  box-shadow:
+    0 30px 90px rgba(70,45,55,.12);
+
+  transition:
+    background .4s ease,
+    box-shadow .4s ease;
+}
+
+[data-theme="dark"] .vault-login-card {
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   LOCK AREA
+========================================================= */
+
+.vault-lock-area {
+  height: 184px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 2px;
+
+  opacity: 1;
+
+  visibility: visible;
+}
+
+
+/* =========================================================
+   LOCK GLOW
+========================================================= */
+
+.vault-lock-glow {
+  width: 145px;
+  height: 145px;
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(239,113,149,.24),
+      rgba(239,113,149,.08) 42%,
+      transparent 70%
+    );
+
+  opacity: .75;
+
+  transform: scale(.85);
+
+  transition:
+    transform .75s cubic-bezier(.2,.9,.2,1),
+    opacity .75s ease;
+}
+
+
+/* =========================================================
+   LOCK
+========================================================= */
+
+.vault-lock {
+  width: 96px;
+  height: 116px;
+
+  position: relative;
+
+  z-index: 5;
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  transform:
+    translateY(0)
+    rotate(0);
+
+  transform-origin:
+    center bottom;
+
+  transition:
+    transform .72s cubic-bezier(.2,.9,.2,1);
+}
+
+
+/* =========================================================
+   LOCK BODY
+========================================================= */
+
+.vault-lock-body {
+  width: 78px;
+  height: 65px;
+
+  position: absolute;
+
+  left: 9px;
+  bottom: 1px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f47fa0,
+      #e45d85
+    );
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  box-shadow:
+    0 17px 38px rgba(217,86,123,.30);
+
+  transition:
+    box-shadow .7s ease,
+    transform .7s cubic-bezier(.2,.9,.2,1);
+}
+
+
+/* =========================================================
+   LOCK SHACKLE
+========================================================= */
+
+.vault-lock-shackle {
+  width: 51px;
+  height: 61px;
+
+  position: absolute;
+
+  left: 22px;
+  top: 3px;
+
+  border:
+    11px solid #dd5d82;
+
+  border-bottom: 0;
+
+  border-radius:
+    31px 31px 0 0;
+
+  z-index: -1 !important;
+
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  transform:
+    rotate(0)
+    translate(0,0);
+
+  transform-origin:
+    50% 100%;
+
+  transition:
+    transform .72s cubic-bezier(.2,.9,.2,1);
+}
+
+
+/* =========================================================
+   KEYHOLE
+========================================================= */
+
+.vault-keyhole {
+  width: 18px;
+  height: 27px;
+
+  position: relative;
+}
+
+.vault-keyhole-circle {
+  width: 14px;
+  height: 14px;
+
+  position: absolute;
+
+  top: 0;
+  left: 2px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.94);
+}
+
+.vault-keyhole-stem {
+  width: 7px;
+  height: 14px;
+
+  position: absolute;
+
+  top: 10px;
+  left: 5.5px;
+
+  border-radius:
+    0 0 5px 5px;
+
+  background:
+    rgba(255,255,255,.94);
+}
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.vault-particles {
+  width: 175px;
+  height: 175px;
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  pointer-events: none;
+
+  z-index: 3;
+
+  opacity: 0;
+}
+
+.vault-particles span {
+  width: 6px;
+  height: 6px;
+
+  position: absolute;
+
+  left: calc(50% - 3px);
+  top: calc(50% - 3px);
+
+  border-radius: 50%;
+
+  background:
+    var(--login-primary);
+
+  box-shadow:
+    0 0 11px
+    rgba(239,113,149,.55);
+}
+
+
+/* =========================================================
+   UNLOCK ANIMATION
+========================================================= */
+
+.vault-stage-unlocking
+.vault-lock-glow,
+
+.vault-stage-open
+.vault-lock-glow {
+  transform:
+    scale(1.35);
+
+  opacity: 1;
+}
+
+
+.vault-stage-unlocking
+.vault-lock-shackle,
+
+.vault-stage-open
+.vault-lock-shackle {
+  transform:
+    rotate(-34deg)
+    translate(5px,-9px);
+}
+
+
+.vault-stage-unlocking
+.vault-lock-body,
+
+.vault-stage-open
+.vault-lock-body {
+  box-shadow:
+    0 20px 52px
+    rgba(239,113,149,.43);
+}
+
+
+/* =========================================================
+   PARTICLE ANIMATION
+========================================================= */
+
+.vault-stage-unlocking
+.vault-particles {
+  opacity: 1;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(1) {
+  animation:
+    vault-particle-1 .85s ease-out forwards;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(2) {
+  animation:
+    vault-particle-2 .85s ease-out forwards;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(3) {
+  animation:
+    vault-particle-3 .85s ease-out forwards;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(4) {
+  animation:
+    vault-particle-4 .85s ease-out forwards;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(5) {
+  animation:
+    vault-particle-5 .85s ease-out forwards;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(6) {
+  animation:
+    vault-particle-6 .85s ease-out forwards;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(7) {
+  animation:
+    vault-particle-7 .85s ease-out forwards;
+}
+
+.vault-stage-unlocking
+.vault-particles span:nth-child(8) {
+  animation:
+    vault-particle-8 .85s ease-out forwards;
+}
+
+
+@keyframes vault-particle-1 {
+  to {
+    transform:
+      translate(-63px,-60px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+@keyframes vault-particle-2 {
+  to {
+    transform:
+      translate(60px,-50px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+@keyframes vault-particle-3 {
+  to {
+    transform:
+      translate(70px,8px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+@keyframes vault-particle-4 {
+  to {
+    transform:
+      translate(48px,62px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+@keyframes vault-particle-5 {
+  to {
+    transform:
+      translate(-45px,65px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+@keyframes vault-particle-6 {
+  to {
+    transform:
+      translate(-70px,8px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+@keyframes vault-particle-7 {
+  to {
+    transform:
+      translate(-58px,38px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+@keyframes vault-particle-8 {
+  to {
+    transform:
+      translate(30px,-68px)
+      scale(.2);
+
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   WRONG LOGIN
+========================================================= */
+
+.vault-stage-error
+.vault-lock {
+  animation:
+    vault-lock-shake .58s ease;
+}
+
+
+@keyframes vault-lock-shake {
+
+  0%,
+  100% {
+    transform:
+      translateX(0)
+      rotate(0);
+  }
+
+  15% {
+    transform:
+      translateX(-9px)
+      rotate(-3deg);
+  }
+
+  30% {
+    transform:
+      translateX(9px)
+      rotate(3deg);
+  }
+
+  45% {
+    transform:
+      translateX(-7px)
+      rotate(-3deg);
+  }
+
+  60% {
+    transform:
+      translateX(7px)
+      rotate(3deg);
+  }
+
+  75% {
+    transform:
+      translateX(-3px)
+      rotate(-1deg);
+  }
+
+  90% {
+    transform:
+      translateX(3px)
+      rotate(1deg);
+  }
+}
+
+
+/* =========================================================
+   EXIT / SCROLL ANIMATION
+========================================================= */
+
+.vault-stage-exit
+.vault-login-scene {
+  transform:
+    translateY(-120vh)
+    scale(.94);
+
+  opacity: 0;
+}
+
+
+.vault-stage-exit
+.vault-bg-orb-1 {
+  transform:
+    translateY(-180px);
+}
+
+.vault-stage-exit
+.vault-bg-orb-2 {
+  transform:
+    translateY(180px);
+}
+
+.vault-stage-exit
+.vault-bg-orb-3 {
+  transform:
+    scale(1.5);
+
+  opacity: 0;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.vault-login-heading {
+  text-align: center;
+
+  margin-bottom: 27px;
+}
+
+.vault-login-eyebrow {
+  margin-bottom: 6px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  color:
+    var(--login-primary-dark);
+}
+
+.vault-login-heading h1 {
+  margin: 0;
+
+  font-family:
+    "Georgia",
+    "Times New Roman",
+    serif;
+
+  font-size: 39px;
+
+  line-height: 1;
+
+  letter-spacing: -1.4px;
+
+  color:
+    var(--login-primary-dark);
+}
+
+.vault-login-heading p {
+  margin: 8px 0 0;
+
+  font-size: 12px;
+
+  color:
+    var(--login-muted);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.vault-login-form {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 17px;
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.vault-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.vault-field label {
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color:
+    var(--login-muted);
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.vault-input-wrapper {
+  width: 100%;
+  height: 49px;
+
+  display: flex;
+
+  align-items: center;
+
+  border:
+    1px solid var(--login-border);
+
+  border-radius: 13px;
+
+  background:
+    var(--login-input);
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+
+.vault-input-wrapper:focus-within {
+  border-color:
+    var(--login-primary);
+
+  box-shadow:
+    0 0 0 4px
+    var(--login-primary-soft);
+}
+
+.vault-input-icon {
+  width: 42px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  color:
+    var(--login-primary);
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.password-icon {
+  font-size: 17px;
+}
+
+.vault-input-wrapper input {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color:
+    var(--login-text);
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  padding:
+    0 13px 0 0;
+}
+
+.vault-input-wrapper input::placeholder {
+  color:
+    var(--login-light);
+}
+
+.vault-input-wrapper input:disabled {
+  cursor: not-allowed;
+
+  opacity: .7;
+}
+
+
+/* =========================================================
+   PASSWORD DOTS
+========================================================= */
+
+.vault-password-dots {
+  height: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 4px;
+
+  padding-right: 5px;
+
+  margin-top: 2px;
+}
+
+.vault-password-dots span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    var(--login-light);
+
+  opacity: .35;
+
+  transform:
+    scale(.75);
+
+  transition:
+    background .15s ease,
+    transform .15s ease,
+    opacity .15s ease;
+}
+
+.vault-password-dots span.active {
+  background:
+    var(--login-primary);
+
+  opacity: 1;
+
+  transform:
+    scale(1);
+}
+
+
+/* =========================================================
+   ERROR BOX
+========================================================= */
+
+/*
+   IMPORTANT:
+   This is called vault-login-error.
+   It intentionally does NOT use .login-error,
+   because .login-error is used by the PAGE animation.
+*/
+
+.vault-login-error {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    10px 12px;
+
+  border-radius: 11px;
+
+  background:
+    var(--login-danger-bg);
+
+  color:
+    var(--login-danger);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  animation:
+    vault-error-appear .25s ease;
+}
+
+.vault-error-icon {
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--login-danger);
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+@keyframes vault-error-appear {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.vault-login-button {
+  width: 100%;
+  height: 51px;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    0 17px;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--login-primary),
+      var(--login-primary-dark)
+    );
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 10px 26px
+    rgba(239,113,149,.24);
+
+  transition:
+    transform .2s cubic-bezier(.2,.8,.2,1),
+    box-shadow .2s ease,
+    opacity .2s ease;
+}
+
+.vault-login-button:hover:not(:disabled) {
+  transform:
+    scale(1.025);
+
+  box-shadow:
+    0 15px 34px
+    rgba(239,113,149,.32);
+}
+
+.vault-login-button:active:not(:disabled) {
+  transform:
+    scale(.975);
+}
+
+.vault-login-button:disabled {
+  cursor:
+    not-allowed;
+
+  opacity: .78;
+}
+
+.vault-button-left {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  width: 100%;
+}
+
+.vault-button-lock {
+  font-size: 8px;
+
+  transition:
+    transform .4s ease;
+}
+
+.vault-stage-unlocking
+.vault-button-lock,
+.vault-stage-open
+.vault-button-lock {
+  transform:
+    scale(1.5);
+
+  color:
+    #fff;
+}
+
+.vault-button-arrow {
+  position: absolute;
+
+  right: 17px;
+
+  font-size: 17px;
+
+  transition:
+    transform .2s ease;
+}
+
+.vault-login-button:hover
+.vault-button-arrow {
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   SECURITY FOOTER
+========================================================= */
+
+.vault-security-footer {
+  margin-top: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  color:
+    var(--login-light);
+
+  font-size: 9px;
+}
+
+.vault-security-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    var(--login-success);
+
+  box-shadow:
+    0 0 8px
+    rgba(91,149,119,.5);
+}
+
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
+
+.vault-theme-button {
+  width: 50px;
+  height: 50px;
+
+  position: fixed;
+
+  right: 22px;
+  bottom: 22px;
+
+  z-index: 100;
+
+  display: grid;
+
+  place-items: center;
+
+  border:
+    1px solid var(--login-border);
+
+  border-radius: 16px;
+
+  background:
+    var(--login-card);
+
+  color:
+    var(--login-text);
+
+  backdrop-filter:
+    blur(20px);
+
+  -webkit-backdrop-filter:
+    blur(20px);
+
+  box-shadow:
+    0 10px 30px
+    rgba(50,35,40,.10);
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    background .3s ease;
+}
+
+.vault-theme-button:hover {
+  transform:
+    scale(1.08)
+    rotate(5deg);
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.vault-input-wrapper input:focus-visible {
+  outline: none;
+}
+
+.vault-login-button:focus-visible,
+.vault-theme-button:focus-visible {
+  outline:
+    3px solid
+    var(--login-primary-soft);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 560px) {
+
+  .vault-login-page {
+    padding: 18px;
+  }
+
+  .vault-login-card {
+    padding:
+      27px 22px 24px;
+
+    border-radius: 25px;
+  }
+
+  .vault-lock-area {
+    height: 160px;
+  }
+
+  .vault-login-heading h1 {
+    font-size: 35px;
+  }
+
+  .vault-theme-button {
+    width: 46px;
+    height: 46px;
+
+    right: 16px;
+    bottom: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .vault-login-scene,
+  .vault-lock,
+  .vault-lock-shackle,
+  .vault-lock-body,
+  .vault-lock-glow,
+  .vault-particles,
+  .vault-bg-orb {
+    transition: none !important;
+
+    animation: none !important;
+  }
+
+}
+/* =========================================================
+   LOGIN / REGISTER MODE
+========================================================= */
+
+.vault-mode-switch {
+  margin-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  font-size: 10px;
+
+  color: var(--login-muted);
+}
+
+.vault-mode-switch button {
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--login-primary-dark);
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    color .2s ease,
+    transform .2s ease;
+}
+
+.vault-mode-switch button:hover:not(:disabled) {
+  color: var(--login-primary);
+  transform: translateY(-1px);
+}
+
+.vault-mode-switch button:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+
+/* =========================================================
+   REGISTRATION LOCK
+========================================================= */
+
+.vault-register-lock {
+  height: 145px;
+}
+
+.vault-mode-register
+.vault-lock {
+  transform: scale(.82);
+}
+
+.vault-mode-register
+.vault-lock-glow {
+  transform: scale(.72);
+  opacity: .5;
+}
+
+
+/* =========================================================
+   REGISTRATION SUCCESS
+========================================================= */
+
+.vault-login-success {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding:
+    10px 12px;
+
+  border-radius: 11px;
+
+  background:
+    rgba(91,149,119,.12);
+
+  color:
+    var(--login-success);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  animation:
+    vault-success-appear .25s ease;
+}
+
+.vault-success-icon {
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--login-success);
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+@keyframes vault-success-appear {
+
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   REGISTER FORM TRANSITION
+========================================================= */
+
+.vault-mode-register
+.vault-login-form {
+  animation:
+    vault-form-switch .3s ease;
+}
+
+.vault-mode-login
+.vault-login-form {
+  animation:
+    vault-form-switch .3s ease;
+}
+
+@keyframes vault-form-switch {
+
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+========================================================= */
+
+.vault-mode-register
+.vault-login-button {
+  background:
+    linear-gradient(
+      135deg,
+      var(--login-primary),
+      var(--login-primary-dark)
+    );
+}
+.vault-input-wrap {
+  background: #ffffff;
+  border-color: rgba(55, 42, 48, 0.14);
+}
+
+.vault-input-wrap input {
+  background: transparent !important;
+  color: #282326;
+}
+
+:root[data-theme="dark"] .vault-input-wrap {
+  background: #292426;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme="dark"] .vault-input-wrap input {
+  background: transparent !important;
+  color: #f4eff1 !important;
+}
